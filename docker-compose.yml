@@ -1,0 +1,15 @@
+---
+version: '3'
+services:
+  EmqxServer:
+    image: emqx:5.0.17
+    container_name: hogar_emqx
+    ports:
+      - "1883:1883"
+      - "18083:18083"
+  Redis:
+    image: redis:7.0.7
+    container_name: hogar_redis
+    ports:
+      - "6379:6379"
+
