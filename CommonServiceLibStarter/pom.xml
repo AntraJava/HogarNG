@@ -14,6 +14,7 @@
 		<maven.compiler.target>17</maven.compiler.target>
 		<springboot.version>3.0.3</springboot.version>
 		<springdata.version>3.0.2</springdata.version>
+		<springcloud.openfeign.version>4.0.1</springcloud.openfeign.version>
 		<micrometer.version>1.6.3</micrometer.version>
 		<lettuce.version>6.2.3.RELEASE</lettuce.version>
 		<spring.integration.mqtt.version>6.0.3</spring.integration.mqtt.version>
@@ -55,7 +56,11 @@
 			<artifactId>spring-kafka</artifactId>
 			<version>${springboot.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-openfeign-core</artifactId>
+			<version>4.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
