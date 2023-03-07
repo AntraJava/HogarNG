@@ -17,12 +17,14 @@ spring:
       on-profile: peer1
 eureka:
   instance:
-    hostname: Daweis-MBP.fios-router.home #watch out this
+    hostname: this-is-a-hostname #watch out this
     prefer-ip-address: false
     appname: eureka
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8762/eureka/ # watch out the host name should be same with peer2
+#    serviceUrl:
+#      defaultZone: http://localhost:8762/eureka/ # watch out the host name should be same with peer2
+    registerWithEureka: false
+    fetchRegistry: false
 server:
   port: 8761
 ---
@@ -37,6 +39,6 @@ eureka:
     appname: eureka
   client:
     serviceUrl:
-      defaultZone: http://Daweis-MBP.fios-router.home:8761/eureka/ # watch out the host name should be same with peer1
+      defaultZone: http://this-is-a-hostname:8761/eureka/ # watch out the host name should be same with peer1
 server:
   port: 8762

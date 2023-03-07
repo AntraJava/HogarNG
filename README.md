@@ -1,6 +1,12 @@
 # Grafana
 
-
+# RabbitMQ - websocket
+- start management docker
+- rabbitmq-plugins enable rabbitmq_stomp
+- create virtualHost
+- /etc/rabbitmq/conf.d/ for configurations
+- https://www.rabbitmq.com/stomp.html
+- it uses dot as delimiter in topics
 # Prometheus
 - clients apps need change properties to
     ```
