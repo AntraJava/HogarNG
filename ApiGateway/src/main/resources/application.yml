@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: after_route
+          uri: https://example.org
+          predicates:
+            - Path=/red/{segment}
+        - id: hogarws
+          uri: lb:ws://clientservice
+          predicates:
+            - Path=/hogarws
