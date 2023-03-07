@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-@RestControllerEndpoint(id="deep-health")
+@RestControllerEndpoint(id="deephealth")
 public class DeepHealthChecker {
 
     @Autowired

@@ -1,6 +1,15 @@
 spring:
   application:
     name: EurekaPeers
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+eureka:
+  instance:
+    metadataMap:
+      "prometheus.path": "/actuator/prometheus"
 ---
 spring:
   config:
