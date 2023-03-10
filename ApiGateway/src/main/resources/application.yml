@@ -10,3 +10,7 @@ spring:
           uri: lb:ws://clientservice
           predicates:
             - Path=/hogarws
+        - id: admin
+          uri: lb://adminservice
+          predicates:
+            - Path=/test

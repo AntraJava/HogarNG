@@ -1,6 +1,8 @@
 package com.hogarcontrols.hogarcloud.admin.actuator;
 
 import com.hogarcontrols.hogarcloud.common.mqtt.MqttGateway;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.web.annotation.RestControllerEndpoint;
@@ -17,6 +19,8 @@ import java.util.Map;
 @Component
 @RestControllerEndpoint(id="deephealth")
 public class DeepHealthChecker {
+
+    private static final Logger log = LoggerFactory.getLogger(DeepHealthChecker.class);
 
     @Autowired
     RedisTemplate redisTemplate;
@@ -57,6 +61,7 @@ public class DeepHealthChecker {
                 result.addResult("Redis Put/Get", "NO");
             }
         } catch (Exception e) {
+            log.error("Redis Error", e);
             result.addResult("Redis Error", e.getMessage());
         }
 
