@@ -8,11 +8,10 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 import org.springframework.web.socket.messaging.AbstractSubProtocolEvent;
-import org.springframework.web.socket.messaging.SessionConnectEvent;
 
 @Configuration
 @EnableWebSocketMessageBroker
-public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+public class WebSocketBrokerConfig implements WebSocketMessageBrokerConfigurer {
 
     @Value("${hogarNG.websocket.allowedOrigins}")
     String[] allowedOrigins;

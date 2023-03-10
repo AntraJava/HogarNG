@@ -17,10 +17,11 @@ public class TestController {
 
     @Autowired
     RestTemplate rt;
+
     @GetMapping("/test")
     public String test() {
         log.info("Feign - "+homeConfigFeignClient.getHomeDummy());
-//        log.info("RT    - "+rt.getForEntity("http://homeconfigservice/home/test", String.class).getBody());
+        log.info("RT    - "+rt.getForEntity("http://homeconfigservice/home/test", String.class).getBody());
         return "ok";
     }
 }

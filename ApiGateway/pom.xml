@@ -27,6 +27,11 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <version>1.0.2</version>
+            <artifactId>context-propagation</artifactId>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>

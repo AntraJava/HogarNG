@@ -47,8 +47,15 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-openfeign-core</artifactId>
 			<version>4.0.1</version>
+			<scope>provided</scope>
 		</dependency>
 <!--		must for tracing in feign   -->
 		<dependency>
