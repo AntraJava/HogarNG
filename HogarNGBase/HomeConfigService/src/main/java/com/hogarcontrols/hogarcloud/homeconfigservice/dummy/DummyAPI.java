@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 @RestController
 @Slf4j
@@ -14,6 +15,9 @@ public class DummyAPI {
     public Map<String, String> getDummy() {
         log.info("Get call in dummy api");
         Map<String, String> data = new HashMap<>();
+//        if(new Random().nextInt(100)/10 > 5 ){
+//            throw new RuntimeException("Randomly error");
+//        }
         data.put("name", "dummy api");
         return data;
     }
