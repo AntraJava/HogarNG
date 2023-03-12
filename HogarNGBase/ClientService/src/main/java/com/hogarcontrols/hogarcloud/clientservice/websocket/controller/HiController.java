@@ -1,9 +1,12 @@
 package com.hogarcontrols.hogarcloud.clientservice.websocket.controller;
 
 import com.hogarcontrols.hogarcloud.common.feign.HomeConfigFeignClient;
+import io.micrometer.observation.annotation.Observed;
+import io.micrometer.tracing.annotation.NewSpan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -24,10 +27,11 @@ public class HiController {
 
     @MessageMapping("/{dest}")
 //    @SendTo("/topic/greetings.dawei.234")
-    public void greeting(@Payload HelloMessage message, @DestinationVariable String dest) throws Exception {
+    public void greeting(Message<HelloMessage> message, @DestinationVariable String dest) throws Exception {
 //        log.info(homeConfigFeignClient.getHomeDummy().toString());
         log.info(dest);
-        simpMessagingTemplate.convertAndSend("/topic/" +dest + "1", new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!"));
+        log.info(message.toString());
+        simpMessagingTemplate.convertAndSend("/topic/" +dest, new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getPayload().getName()) + "!"));
         // default it will reply to /topic/{dest}
        // return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }
