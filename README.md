@@ -68,3 +68,23 @@ or
           - server: http://host.docker.internal:8761/eureka
         relabel_configs:```
 - watch out the host name it runs inside docker locally
+
+# Security
+## Api gateway
+- @EnableWebFluxSecurity
+- pom.xml dependencies
+- SecurityConfig
+
+## Admin Service
+- @EnableWebSecurity optional
+- @EnableMethodSecurity
+- Pom.xml dependencies
+- SecurityConfig
+- TODO: move to common service
+
+## JWT
+Keycloak -> client JWT access token -> api gateway(security config path/authority)
+-> serviceA(security config, jwt verification to JWKs) -> serviceB(security config path/authority)
+
+- RestTemplate and FeignClient been intercepted for JWT propagation.
+- FeignClient interceptor won't work with Resilient4j
