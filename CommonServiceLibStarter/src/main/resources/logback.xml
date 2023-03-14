@@ -32,7 +32,8 @@
         </encoder>
         <file>${LOG_FILE_PATH}/hogarNG-${spring.application.name}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_FILE_PATH}/hogarNG-${spring.application.name}.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+<!--            <fileNamePattern>${LOG_FILE_PATH}/hogarNG.%d{yyyy-MM-dd}(${spring.application.name})-%i.log.gz</fileNamePattern>-->
+            <fileNamePattern>${LOG_FILE_PATH}/hogarNG.%d{yyyy-MM-dd}(${spring.application.name}).log.gz</fileNamePattern>
             <cleanHistoryOnStart>false</cleanHistoryOnStart>
             <maxFileSize>100MB</maxFileSize>
             <totalSizeCap>0</totalSizeCap>
