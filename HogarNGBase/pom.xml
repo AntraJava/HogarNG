@@ -96,6 +96,7 @@
         <module>ClientService</module>
         <module>HomeConfigService</module>
         <module>AdminService</module>
+        <module>FleetManager</module>
         <module>../ApiGateway</module>
     </modules>
     <build>
