@@ -13,4 +13,23 @@ spring:
         - id: admin
           uri: lb://adminservice
           predicates:
-            - Path=/test
+            - Path=/test/**
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: test_client
+            client-secret: VtRaaR23BM0KjnOr9qZaYePNm5RYKlMB
+            authorization-grant-type: authorization_code
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: https://keycloak.antrasep.com:8443/realms/AntraLMS
+            user-name-attribute: preferred_username
+      #          jwk-set-uri: https://your-subdomain.oktapreview.com/oauth2/v1/keys
+      resourceserver:
+        jwt:
+          issuer-uri: https://keycloak.antrasep.com:8443/realms/AntraLMS
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs

@@ -28,7 +28,7 @@ public class HiController {
     @MessageMapping("/{dest}")
 //    @SendTo("/topic/greetings.dawei.234")
     public void greeting(Message<HelloMessage> message, @DestinationVariable String dest) throws Exception {
-//        log.info(homeConfigFeignClient.getHomeDummy().toString());
+        log.info(homeConfigFeignClient.getHomeDummy().toString());
         log.info(dest);
         log.info(message.toString());
         simpMessagingTemplate.convertAndSend("/topic/" +dest, new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getPayload().getName()) + "!"));

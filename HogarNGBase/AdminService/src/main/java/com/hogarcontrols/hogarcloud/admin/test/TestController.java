@@ -18,9 +18,26 @@ public class TestController {
 
     @Autowired
     RestTemplate rt;
-    @PreAuthorize("hasRole('acc')")
+
+    @PreAuthorize("hasRole('manager')")
     @GetMapping("/test")
     public String test() {
+        log.info("Feign - "+homeConfigFeignClient.getHomeDummy());
+        log.info("RT    - "+rt.getForEntity("http://homeconfigservice/home/test", String.class).getBody());
+        return "ok";
+    }
+
+
+    @GetMapping("/test/admin")
+    public String testAdmin() {
+        log.info("Feign - "+homeConfigFeignClient.getHomeDummy());
+        log.info("RT    - "+rt.getForEntity("http://homeconfigservice/home/test", String.class).getBody());
+        return "ok";
+    }
+
+    @PreAuthorize("hasRole('managerA')")
+    @GetMapping("/test/regular")
+    public String testReg() {
         log.info("Feign - "+homeConfigFeignClient.getHomeDummy());
         log.info("RT    - "+rt.getForEntity("http://homeconfigservice/home/test", String.class).getBody());
         return "ok";
